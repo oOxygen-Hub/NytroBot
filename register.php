@@ -1,12 +1,12 @@
 <?php
 
 // PARAMETRI DA MODIFICARE
-$WEBHOOK_URL = 'https://{APP NAME}.herokuapp.com/execute.php';
-$BOT_TOKEN = '{TOKEN}';
+$WEBHOOK_URL = 'https://nytrobot.herokuapp.com/register.php.';
+$BOT_TOKEN = '953056664:AAHqnEZUnFKS8K_Q1v4xwFqZvRIwXWCNfYA';
 
 // NON APPORTARE MODIFICHE NEL CODICE SEGUENTE
-$API_URL = 'https://nytrobot.herokuapp.com/execute.php' . $BOT_TOKEN .'/';
-$method = '953056664:AAHqnEZUnFKS8K_Q1v4xwFqZvRIwXWCNfYA';
+$API_URL = 'https://api.telegram.org/bot' . $BOT_TOKEN .'/';
+$method = 'setWebhook';
 $parameters = array('url' => $WEBHOOK_URL);
 $url = $API_URL . $method. '?' . http_build_query($parameters);
 $handle = curl_init($url);
