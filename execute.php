@@ -21,7 +21,7 @@ if(strpos($text, "/start") === 0 || $text=="ciao")
 {
 	$response = "Ciao $firstname, benvenuto!";
 }
-elseif($text=="name")
+elseif($text=="/name")
 {
 	$response = "Im NytroBot, created by oOxygen";
 }
