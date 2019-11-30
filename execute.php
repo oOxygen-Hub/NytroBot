@@ -21,17 +21,17 @@ if(strpos($text, "/start") === 0 || $text=="ciao")
 {
 	$response = "Ciao $firstname, benvenuto!";
 }
-elseif($text=="/name")
+elseif($text=="ciao")
 {
-	$response = "Im NytroBot, created by oOxygen";
+	$response = "Ciao, benvenuto $firstname";
 }
-elseif($text=="domanda 2")
+elseif($text=="oxy")
 {
-	$response = "risposta 2";
+	$response = "oOxygen è il mio Creatore";
 }
 else
 {
-	$response = "Comando non valido!";
+	$response = "Scusa non ho Capito!";
 }
 $parameters = array('chat_id' => $chatId, "text" => $response);
 $parameters["method"] = "sendMessage";
