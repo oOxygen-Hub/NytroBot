@@ -27,11 +27,8 @@ elseif($text=="ciao")
 }
 elseif($text=="oxy")
 {
-	$response = "oOxygen è il mio Creatore";
-}
-else
-{
-	$response = "Scusa non ho Capito!";
+	$response = "oOxygen è il mio Creatore cosa vuoi da lui?";
+
 }
 $parameters = array('chat_id' => $chatId, "text" => $response);
 $parameters["method"] = "sendMessage";
