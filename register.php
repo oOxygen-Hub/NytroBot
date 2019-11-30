@@ -1,7 +1,7 @@
 <?php
 
 // PARAMETRI DA MODIFICARE
-$WEBHOOK_URL = 'https://nytrobot.herokuapp.com/register.php.';
+$WEBHOOK_URL = 'https://nytrobot.herokuapp.com/execute.php';
 $BOT_TOKEN = '1036235226:AAEHiMaeIW0CRa34AvVG7H4JWuUBJn_poIM';
 
 // NON APPORTARE MODIFICHE NEL CODICE SEGUENTE
