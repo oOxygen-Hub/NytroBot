@@ -2,7 +2,7 @@
 
 // PARAMETRI DA MODIFICARE
 $WEBHOOK_URL = 'https://nytrobot.herokuapp.com/register.php.';
-$BOT_TOKEN = '953056664:AAHqnEZUnFKS8K_Q1v4xwFqZvRIwXWCNfYA';
+$BOT_TOKEN = '1036235226:AAEHiMaeIW0CRa34AvVG7H4JWuUBJn_poIM';
 
 // NON APPORTARE MODIFICHE NEL CODICE SEGUENTE
 $API_URL = 'https://api.telegram.org/bot' . $BOT_TOKEN .'/';
