@@ -45,10 +45,7 @@
         sendMessage($chatId,"Test tastiera Inline!",$esempiotastierainline,"inline");
         break;
     case "Links":
-         $btn = new InlineKeyboardButton([
-        'text' => 'Example text',
-        'url' => 'http://example.org'
-    ])
+        sendMessage($chatId,"http://ooxygen.tech");
         break;
     default:
       //$tastierabenvenuto = '["Bene"],["Tu?"],["'.$nome.'"]';
