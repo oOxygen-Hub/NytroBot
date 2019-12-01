@@ -21,7 +21,10 @@ $response = '';
 
 if($text =="/start")
 {
-	$response =  '[{"text":"Testo","url":"http://yt.alexgaming.me"},{"text":"Inline","switch_inline_query":"Ciao!"}],[{"text":"Testo","callback_data":"StampaMessaggio"},{"text":"Modifica Messaggio","callback_data":"ModificaMessaggio"}]';
+$menu[] = array("VOCE TASTIERA 1");
+$menu[] = array("VOCE TASTIERA 2", "VOCE TASTIERA 3");
+$menu[] = array("VOCE TASTIERA 5"); 
+
 }
 elseif($text=="ciao")
 {
