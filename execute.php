@@ -39,7 +39,7 @@
    
   switch($text){
     case "/start":
-        $tastierabenvenuto = '["Menu","Links"],["'.$nome.'","Info Bot"],["Official Channel"]';
+        $tastierabenvenuto = '[":heart:Menu","Links"],["'.$nome.'","Info Bot"],["Official Channel"]';
         sendMessage($chatId,"Ciao <b>$nome</b>! Come posso esserti utile?",$tastierabenvenuto,"fisica");
         break;
     case "/tastiera":
@@ -49,7 +49,7 @@
         sendMessage($chatId,"NytroBot Master Links",$tastierainline,"inline");
         break;
     case "Links":
-        sendMessage($chatId,"url:http://ooxygen.tech",$tastierabenvenuto,"fisica");
+        sendMessage($chatId,"http://ooxygen.tech",$tastierabenvenuto,"fisica");
     default:
       //$tastierabenvenuto = '["che"],["palle"],["'.$nome.'"]';
       //sendMessage($chatId,"Ciao <b>$nome</b>! Come stai?",$tastierabenvenuto,"fisica");
