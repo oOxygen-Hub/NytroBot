@@ -19,7 +19,7 @@ header("Content-Type: application/json");
 $response = '';
    $esempiotastierainline = '[{"text":"Testo","url":"http://yt.alexgaming.me"},{"text":"Inline","switch_inline_query":"Ciao!"}],[{"text":"Testo","callback_data":"StampaMessaggio"},{"text":"Modifica Messaggio","callback_data":"ModificaMessaggio"}]';
 
-if(strpos($text, "/start") === 0 || $text=="ciao")
+if($text =="/start")
 {
 	sendMessage($chatId,"Test tastiera Inline!",$esempiotastierainline,"inline");
 }
