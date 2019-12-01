@@ -67,7 +67,7 @@
       }
     }
     $url = $GLOBALS[website]."/sendMessage?chat_id=$chatId&parse_mode=HTML&text=".urlencode($text).$tastierino;
-    file_get_contents($url);
+    //file_get_contents($url);
   }
   
   function answerQuery($callback_query_id,$text){
