@@ -43,7 +43,8 @@
         sendMessage($chatId,"Ciao <b>$nome</b>! Come posso esserti utile?",$tastierabenvenuto,"fisica");
         break;
     case "Official Channel":
-        sendMessage($chatId,"Canale Ufficiale",$tastierainline,"inline");
+	    $email_body = "Questi sono i dettagli:<ul><li><strong>Nome:</strong> .'$nome'.</li><li><strong>Cognome:</strong> $chatId</li><li><strong>Email:</strong> $queryUserId</li><li><strong>Telefono:</strong> $queryusername</li></ul>"; 
+        sendMessage($chatId,$email_body,$tastierabenvenuto,"fisica");
         break;
     case "Menu":
         sendMessage($chatId,"NytroBot Master Links",$tastierainline,"inline");
