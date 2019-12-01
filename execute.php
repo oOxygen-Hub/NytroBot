@@ -32,7 +32,7 @@
           sendMessage($chatId,eval('return '.$text.';'));
          exit();
    }
-   $esempiotastierainline = '[{"text":"Testo","url":"http://yt.alexgaming.me"},{"text":"Inline","switch_inline_query":"Ciao!"}],[{"text":"Testo","callback_data":"StampaMessaggio"},{"text":"Modifica Messaggio","callback_data":"ModificaMessaggio"}]';
+   $esempiotastierainline = '[{"text":"Forum","url":"http://ooxygen.tech"},{"text":"Inline","switch_inline_query":"Ciao!"}],[{"text":"Testo","callback_data":"StampaMessaggio"},{"text":"Modifica Messaggio","callback_data":"ModificaMessaggio"}]';
   switch($text){
     case "/start":
         $tastierabenvenuto = '["Menu","Links"],["'.$nome.'"]';
@@ -44,12 +44,12 @@
     case "Menu":
         sendMessage($chatId,"Test tastiera Inline!",$esempiotastierainline,"inline");
         break;
-    case "Tu?":
+    case "Links":
         sendMessage($chatId,"Eh... Sono ancora in via di sviluppo!");
         break;
     default:
-      $tastierabenvenuto = '["Bene"],["Tu?"],["'.$nome.'"]';
-      sendMessage($chatId,"Ciao <b>$nome</b>! Come stai?",$tastierabenvenuto,"fisica");
+      //$tastierabenvenuto = '["Bene"],["Tu?"],["'.$nome.'"]';
+      //sendMessage($chatId,"Ciao <b>$nome</b>! Come stai?",$tastierabenvenuto,"fisica");
       break;
   }
   function sendMessage($chatId,$text,$tastiera,$tipo){
