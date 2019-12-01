@@ -35,7 +35,7 @@
    $esempiotastierainline = '[{"text":"Testo","url":"http://yt.alexgaming.me"},{"text":"Inline","switch_inline_query":"Ciao!"}],[{"text":"Testo","callback_data":"StampaMessaggio"},{"text":"Modifica Messaggio","callback_data":"ModificaMessaggio"}]';
   switch($text){
     case "/start":
-        $tastierabenvenuto = '["Menu"],["Tu?"],["'.$nome.'"]';
+        $tastierabenvenuto = '["Menu","Links"],["'.$nome.'"]';
         sendMessage($chatId,"Ciao <b>$nome</b>! Come posso esserti utile?",$tastierabenvenuto,"fisica");
         break;
     case "/tastiera":
