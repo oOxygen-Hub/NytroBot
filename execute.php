@@ -39,7 +39,7 @@
    
   switch($text){
     case "/start":
-        $tastierabenvenuto = '["Menu" "callback_data":"/tastiera","Links"],["'.$nome.'","Info Bot"],["Official Channel"]';
+        $tastierabenvenuto = '["Menu","Links"],["'.$nome.'","Info Bot"],["Official Channel"]';
         sendMessage($chatId,"Ciao <b>$nome</b>! Come posso esserti utile?",$tastierabenvenuto,"fisica");
         break;
     case "/tastiera":
@@ -81,4 +81,3 @@
       file_get_contents($url);
       exit();
   }
-?>
