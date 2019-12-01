@@ -36,14 +36,14 @@
   
   switch($text){
     case "/start":
-        $tastierabenvenuto = '["Menu","Links"],["'.$nome.'","Info Bot"]';
+        $tastierabenvenuto = '["Menu","Links"],["'.$nome.'","Info Bot"],["Ufficial Channel"]';
         sendMessage($chatId,"Ciao <b>$nome</b>! Come posso esserti utile?",$tastierabenvenuto,"fisica");
         break;
     case "/tastiera":
         sendMessage($chatId,"Test tastiera Inline!",$esempiotastierainline,"inline");
         break;
     case "Menu":
-        sendMessage($chatId,"Test tastiera Inline!",$esempiotastierainline,"inline");
+        sendMessage($chatId,"NytroBot Master Links",$esempiotastierainline,"inline");
         break;
     case "Links":
         sendMessage($chatId,"Ottimo!");
