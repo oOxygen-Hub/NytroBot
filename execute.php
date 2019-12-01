@@ -36,7 +36,7 @@
   
   switch($text){
     case "/start":
-        $tastierabenvenuto = '["Menu","Links"],["'.$nome.'","Info Bot"],["Ufficial Channel"]';
+        $tastierabenvenuto = '["Menu" "callback_data":"/tastiera","Links"],["'.$nome.'","Info Bot"],["Ufficial Channel"]';
         sendMessage($chatId,"Ciao <b>$nome</b>! Come posso esserti utile?",$tastierabenvenuto,"fisica");
         break;
     case "/tastiera":
