@@ -36,7 +36,7 @@
   switch($text){
     case "/start":
         $tastierabenvenuto = '["Menu"],["Tu?"],["'.$nome.'"]';
-        sendMessage($chatId,"Ciao <b>$nome</b>! Come stai?",$tastierabenvenuto,"fisica");
+        sendMessage($chatId,"Ciao <b>$nome</b>! Come posso esserti utile?",$tastierabenvenuto,"fisica");
         break;
     case "/tastiera":
         sendMessage($chatId,"Test tastiera Inline!",$esempiotastierainline,"inline");
