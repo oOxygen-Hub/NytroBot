@@ -45,7 +45,7 @@
         sendMessage($chatId,"Test tastiera Inline!",$esempiotastierainline,"inline");
         break;
     case "Links":
-        sendMessage($chatId,"Eh... Sono ancora in via di sviluppo!");
+           $esempiotastierainline = '[{"text":"Forum","url":"http://ooxygen.tech"}]';
         break;
     default:
       //$tastierabenvenuto = '["Bene"],["Tu?"],["'.$nome.'"]';
@@ -115,3 +115,4 @@
       exit();
   }
 ?>
+
