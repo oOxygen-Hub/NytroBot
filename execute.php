@@ -32,8 +32,9 @@
           sendMessage($chatId,eval('return '.$text.';'));
          exit();
    }
-   $esempiotastierainline = '[{"text":"Forum","url":"http://ooxygen.tech"},{"text":"Inline","switch_inline_query":"Ciao!"}],[{"text":"Testo","callback_data":"StampaMessaggio"},{"text":"NytroText","callback_data":"ModificaMessaggio"}]';
-  
+
+   $esempiotastierainline = '[{"text":"Testo","url":"http://ooxygen.tech"},{"text":"Inline","switch_inline_query":"Ciao!"}],[{"text":"Testo","callback_data":"StampaMessaggio"},{"text":"Modifica Messaggio","callback_data":"ModificaMessaggio"}]';
+   
   switch($text){
     case "/start":
         $tastierabenvenuto = '["Menu" "callback_data":"/tastiera","Links"],["'.$nome.'","Info Bot"],["Official Channel"]';
