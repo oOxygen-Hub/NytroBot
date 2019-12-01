@@ -42,8 +42,8 @@
         $tastierabenvenuto = '["Menu","Links"],["'.$nome.'","Info Bot"],["Official Channel"]';
         sendMessage($chatId,"Ciao <b>$nome</b>! Come posso esserti utile?",$tastierabenvenuto,"fisica");
         break;
-    case "/tastiera":
-        sendMessage($chatId,"",$tastierainline,"inline");
+    case "Official Channel":
+        sendMessage($chatId,"Canale Ufficiale",$tastierainline,"inline");
         break;
     case "Menu":
         sendMessage($chatId,"NytroBot Master Links",$tastierainline,"inline");
