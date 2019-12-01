@@ -21,7 +21,7 @@ $response = '';
 
 if($text =="/start")
 {
-	sendMessage($chatId,"Test tastiera Inline!",$esempiotastierainline,"inline");
+	$response = $chatId,"Test tastiera Inline!",$esempiotastierainline,"inline";
 }
 elseif($text=="ciao")
 {
