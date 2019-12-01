@@ -43,7 +43,7 @@
         sendMessage($chatId,"Ciao <b>$nome</b>! Come posso esserti utile?",$tastierabenvenuto,"fisica");
         break;
     case "Official Channel":
-	    $email_body = "Questi sono i dettagli \nxxxxxx \nbbbbbb \nkkkkkkkk"; 
+	    $email_body = "<b>Questi sono i tuoi dettagli</b> \n $nome \n $chatId \nkkkkkkkk"; 
         sendMessage($chatId,$email_body,$tastierabenvenuto,"fisica");
         break;
     case "Menu":
