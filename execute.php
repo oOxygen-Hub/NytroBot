@@ -38,14 +38,14 @@
         $tastierabenvenuto = '["Menu","Links"],["'.$nome.'"]';
         sendMessage($chatId,"Ciao <b>$nome</b>! Come posso esserti utile?",$tastierabenvenuto,"fisica");
         break;
-    case "/tastiera":
-        sendMessage($chatId,"Test tastiera Inline!",$esempiotastierainline,"inline");
-        break;
     case "Menu":
         sendMessage($chatId,"Test tastiera Inline!",$esempiotastierainline,"inline");
         break;
     case "Links":
-        sendMessage($chatId,"http://ooxygen.tech");
+        sendMessage($chatId,"Ottimo!");
+        break;
+    case "Tu?":
+        sendMessage($chatId,"Eh... Sono ancora in via di sviluppo!");
         break;
     default:
       //$tastierabenvenuto = '["Bene"],["Tu?"],["'.$nome.'"]';
@@ -115,4 +115,3 @@
       exit();
   }
 ?>
-
