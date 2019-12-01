@@ -33,7 +33,7 @@
          exit();
    }
 
-   $tastierainline = '[{"text":"Testo","url":"http://ooxygen.tech"},{"text":"Inline","switch_inline_query":"Ciao!"}],[{"text":"Testo","callback_data":"StampaMessaggio"},{"text":"ModificaMessaggio","callback_data":"ModificaMessaggio"}]';
+   $tastierainline = '[{"text":"Testo","url":"http://ooxygen.tech"},{"text":"Inline","switch_inline_query":"Ciao!"}],[{"text":"Testo","callback_data":"StampaMessaggio"},{"text":"Bot","callback_data":"ModificaMessaggio"}]';
    
   switch($text){
     case "/start":
