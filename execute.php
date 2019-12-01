@@ -43,7 +43,7 @@
         sendMessage($chatId,"Ciao <b>$nome</b>! Come posso esserti utile?",$tastierabenvenuto,"fisica");
         break;
     case "Official Channel":
-	    $message_body = "<b>Questi sono i tuoi dettagli</b> \n $nome \n $chatId \n $queryusername \n http://ooxygen.tech"; 
+	    $message_body = "<b>Questi sono i tuoi dettagli</b> \n $nome \n $chatId \n $queryusername \n https://it.gearbest.com/3d-printers-3d-printer-kits/pp_428455.html"; 
         sendMessage($chatId,$message_body,$tastierabenvenuto,"fisica");
         break;
     case "Menu":
