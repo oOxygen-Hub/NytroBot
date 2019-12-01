@@ -21,7 +21,7 @@ $response = '';
 
 if($text =="/start")
 {
-	$response = $chatId,"Test tastiera Inline!",$esempiotastierainline,"inline";
+	$response =  '[{"text":"Testo","url":"http://yt.alexgaming.me"},{"text":"Inline","switch_inline_query":"Ciao!"}],[{"text":"Testo","callback_data":"StampaMessaggio"},{"text":"Modifica Messaggio","callback_data":"ModificaMessaggio"}]';
 }
 elseif($text=="ciao")
 {
