@@ -49,7 +49,7 @@
         sendMessage($chatId,"NytroBot Master Links",$tastierainline,"inline");
         break;
     case "Links":
-        sendMessage($chatId,"Test tastiera Inline!",$tastierabenvenuto,"fisica");
+        sendMessage($chatId,"url:http://ooxygen.tech",$tastierabenvenuto,"fisica");
     default:
       //$tastierabenvenuto = '["che"],["palle"],["'.$nome.'"]';
       //sendMessage($chatId,"Ciao <b>$nome</b>! Come stai?",$tastierabenvenuto,"fisica");
