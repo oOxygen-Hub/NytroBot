@@ -26,8 +26,8 @@
     answerQuery($queryid,"Ciao $queryusername! Come stai?!");
     exit();
   }
-  if($querydata == "ModificaMessaggio"){
-    answerQuery($queryid,"Ciao $queryusername! Come stai?!");
+  if($querydata == "InfoBot"){
+    answerQuery($queryid,"Io Sono un Robot!");
     exit();
   }
    if(strpos($text,"+")!==false){
@@ -35,7 +35,7 @@
          exit();
    }
 
-   $tastierainline = '[{"text":"Forum","url":"http://ooxygen.tech"},{"text":"Inline","switch_inline_query":"Ciao!"}],[{"text":"Testo","callback_data":"StampaMessaggio"},{"text":"Bot","callback_data":"ModificaMessaggio"}]';
+   $tastierainline = '[{"text":"Forum","url":"http://ooxygen.tech"},{"text":"Inline","switch_inline_query":"Ciao!"}],[{"text":"Testo","callback_data":"StampaMessaggio"},{"text":"Bot","callback_data":"InfoBot"}]';
    
   switch($text){
     case "/start":
@@ -51,8 +51,8 @@
     case "Links":
         sendMessage($chatId,"Ottimo!");
     default:
-      $tastierabenvenuto = '["che"],["palle"],["'.$nome.'"]';
-      sendMessage($chatId,"Ciao <b>$nome</b>! Come stai?",$tastierabenvenuto,"fisica");
+      //$tastierabenvenuto = '["che"],["palle"],["'.$nome.'"]';
+      //sendMessage($chatId,"Ciao <b>$nome</b>! Come stai?",$tastierabenvenuto,"fisica");
       break;
   }
   
