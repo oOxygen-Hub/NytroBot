@@ -21,9 +21,9 @@ $response = '';
 
 if($text =="/start")
 {
-$menu[] = array("VOCE TASTIERA 1");
-$menu[] = array("VOCE TASTIERA 2", "VOCE TASTIERA 3");
-$menu[] = array("VOCE TASTIERA 5"); 
+$nomeatuascelta = '["CIAO"]';
+$nomeatuascelta = '["CIAO"],["CIAO"]';
+$nomeatuascelta = '["Ciao","Ciao"]';
 
 }
 elseif($text=="ciao")
