@@ -46,7 +46,7 @@
         sendMessage($chatId,"Test tastiera Inline!",$esempiotastierainline,"inline");
         break;
     case "Links":
-        answerQuery($queryid,"Ciao $queryusername! Come stai?!");
+        sendMessage($chatId,"Ottimo!");
     default:
       //$tastierabenvenuto = '["Bene"],["Tu?"],["'.$nome.'"]';
       //sendMessage($chatId,"Ciao <b>$nome</b>! Come stai?",$tastierabenvenuto,"fisica");
@@ -80,3 +80,4 @@
   }
 
 ?>
+
