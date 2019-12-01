@@ -33,6 +33,7 @@
          exit();
    }
    $esempiotastierainline = '[{"text":"Forum","url":"http://ooxygen.tech"},{"text":"Inline","switch_inline_query":"Ciao!"}],[{"text":"Testo","callback_data":"StampaMessaggio"},{"text":"Modifica Messaggio","callback_data":"ModificaMessaggio"}]';
+  
   switch($text){
     case "/start":
         $tastierabenvenuto = '["Menu","Links"],["'.$nome.'"]';
@@ -45,13 +46,13 @@
         sendMessage($chatId,"Test tastiera Inline!",$esempiotastierainline,"inline");
         break;
     case "Links":
-        $tastierabenvenuto = '["Menu","Links"],["'.$nome.'"]';
-        sendMessage($chatId,"Ciao <b>$nome</b>! uffaaaaaaaaaaaa",$tastierabenvenuto,"fisica");
+        answerQuery($queryid,"Ciao $queryusername! Come stai?!");
     default:
       //$tastierabenvenuto = '["Bene"],["Tu?"],["'.$nome.'"]';
       //sendMessage($chatId,"Ciao <b>$nome</b>! Come stai?",$tastierabenvenuto,"fisica");
       break;
   }
+  
   function sendMessage($chatId,$text,$tastiera,$tipo){
     if(isset($tastiera)){
       if($tipo == "fisica"){
@@ -64,15 +65,12 @@
     $url = $GLOBALS[website]."/sendMessage?chat_id=$chatId&parse_mode=HTML&text=".urlencode($text).$tastierino;
     file_get_contents($url);
   }
+  
   function answerQuery($callback_query_id,$text){
     $url = $GLOBALS[website]."/answerCallbackQuery?callback_query_id=$callback_query_id&text=".urlencode($text);
     file_get_contents($url);
   }
-  function editMessageText($chatId,$message_id,$newText)
-  {
-    $url = $GLOBALS[website]."/editMessageText?chat_id=$chatId&message_id=$message_id&parse_mode=HTML&text=".urlencode($newText);
-    file_get_contents($url);
-  }
+
   function gestisciInlineQuery($queryId,$chatId,$querydata,$username,$name,$cognome)
   {
       $risultati = json_encode($risultati,true);
@@ -82,5 +80,3 @@
   }
 
 ?>
-
-
