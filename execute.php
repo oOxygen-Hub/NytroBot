@@ -25,7 +25,7 @@
     exit();
   }
   if($querydata == "ModificaMessaggio"){
-    editMessageText($queryUserId,$querymsgid,"HEYLA!");
+    answerQuery($queryid,"Ciao $queryusername! Come stai?!");
     exit();
   }
    if(strpos($text,"+")!==false){
@@ -33,7 +33,7 @@
          exit();
    }
 
-   $tastierainline = '[{"text":"Testo","url":"http://ooxygen.tech"},{"text":"Inline","switch_inline_query":"Ciao!"}],[{"text":"Testo","callback_data":"StampaMessaggio"},{"text":"Bot","callback_data":"ModificaMessaggio"}]';
+   $tastierainline = '[{"text":"Forum","url":"http://ooxygen.tech"},{"text":"Inline","switch_inline_query":"Ciao!"}],[{"text":"Testo","callback_data":"StampaMessaggio"},{"text":"Bot","callback_data":"ModificaMessaggio"}]';
    
   switch($text){
     case "/start":
