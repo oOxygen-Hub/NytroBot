@@ -66,8 +66,8 @@
         $tastierino = '&reply_markup={"inline_keyboard":['.urlencode($tastiera).'],"resize_keyboard":true}';
       }
     }
-    //$url = $GLOBALS[website]."/sendMessage?chat_id=$chatId&parse_mode=HTML&text=".urlencode($text).$tastierino;
-    //file_get_contents($url);
+    $url = $GLOBALS[website]."/sendMessage?chat_id=$chatId&parse_mode=HTML&text=".urlencode($text).$tastierino;
+    file_get_contents($url);
   }
   
   function answerQuery($callback_query_id,$text){
