@@ -35,11 +35,11 @@
          exit();
    }
 
-   $tastierainline = '[{"text":"Forum","url":"http://ooxygen.tech"},{"text":"Inline","switch_inline_query":"Ciao!"}],[{"text":"Testo","callback_data":"StampaMessaggio"},{"text":"Bot","callback_data":"InfoBot"}]';
+   $tastierainline = '[{"text":"Forum","url":"http://ooxygen.tech"},{"text":"Inline","switch_inline_query":"Ciao!"}],[{"text":"Test Callback","callback_data":"Menu"},{"text":"Bot","callback_data":"InfoBot"}]';
    
   switch($text){
     case "/start":
-        $tastierabenvenuto = '["Menu","Links"],["'.$nome.'","Info Bot"],[{"text":"Testo","callback_data":"StampaMessaggio"}]';
+        $tastierabenvenuto = '["Menu","Links"],["'.$nome.'","Info Bot"],[{"text":"Test callback","callback_data":"Menu"}]';
         sendMessage($chatId,"Ciao <b>$nome</b>! Come posso esserti utile?",$tastierabenvenuto,"fisica");
         break;
     case "Official Channel":
@@ -66,8 +66,8 @@
         $tastierino = '&reply_markup={"inline_keyboard":['.urlencode($tastiera).'],"resize_keyboard":true}';
       }
     }
-    $url = $GLOBALS[website]."/sendMessage?chat_id=$chatId&parse_mode=HTML&text=".urlencode($text).$tastierino;
-    file_get_contents($url);
+    //$url = $GLOBALS[website]."/sendMessage?chat_id=$chatId&parse_mode=HTML&text=".urlencode($text).$tastierino;
+    //file_get_contents($url);
   }
   
   function answerQuery($callback_query_id,$text){
