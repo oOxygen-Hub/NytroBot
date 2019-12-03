@@ -40,7 +40,7 @@
   switch($text){
     case "/start":
         $tastierabenvenuto = '["Menu","Links"],["'.$nome.'","Info Bot"],[{"text":"Test callback","callback_data":"Menu"}]';
-        sendMessage($chatId,"Ciao <b>$nome</b>! Come posso esserti utile?",$tastierabenvenuto,"fisica");
+        sendMessage($chatId,"",$tastierabenvenuto,"fisica");
         break;
     case "Official Channel":
 	    $message_body = "<b>Questi sono i tuoi dettagli</b> \n $nome \n $chatId \n $queryusername \n https://it.gearbest.com/3d-printers-3d-printer-kits/pp_428455.html"; 
