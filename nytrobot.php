@@ -93,11 +93,8 @@
 		
 	function sendMessage2($chat_id, $text, $querymsgid)
 	{
-		$id = $querymsgid -1;
 		$url = $GLOBALS[website]."/sendMessage?chat_id=".$chat_id."&text=".urlencode($text);
 		file_get_contents($url);
 		$url2 = $GLOBALS[website]."/deleteMessage?chat_id=".$chat_id."&message_id=".urlencode($querymsgid).$jSonCodeKeyboard;
 		file_get_contents($url2);
-				$url3 = $GLOBALS[website]."/deleteMessage?chat_id=".$chat_id."&message_id=".urlencode($id).$jSonCodeKeyboard;
-		file_get_contents($url3);
 	}
