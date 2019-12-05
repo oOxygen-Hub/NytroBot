@@ -85,6 +85,6 @@
 	
 	function deleteMessage($chat_id, $querymsgid) // This is an useless type of this keyboard, in a specific Tutorial I show an useful usage of this keyboard.
 	{
-	$url = $GLOBALS[website]."/deleteMessage?chat_id=$ChatID&message_id=$querymsgid";
+	$url = $GLOBALS[website]."/deleteMessage?chat_id=$chat_id&message_id=$querymsgid";
     file_get_contents($url);
 	}
