@@ -11,16 +11,11 @@
 	$Message = $FilejSon["message"]["text"]; // Get the message sent from user
     $querymsgid = $query['message']['message_id'];
 	
-	
-	
-	
-	
-	
 	switch ($Message)
 	{
 		case '/start':
 			$msg = "Welcome $FirstName! I'm a Tutorial Bot.";
-			SendGenericMenu($ChatID);
+			showKeyboard($ChatID, $msg);
 			break;
 
 		case '/keyboard': // Command to show normal Keyboard
@@ -87,33 +82,3 @@
 		$url = $GLOBALS[website]."/sendMessage?chat_id=".$chat_id."&text=".urlencode($text).$jSonCodeKeyboard;
 		file_get_contents($url);
 	}
-	function SendGenericMenu ($chatid) {
-$lista=array("A", "B", "C");
-$text="Choose:";
-global $bottoken;
-$replyMarkup = array(
-    'keyboard' => $lista,
-);
-$encodedMarkup = json_encode($replyMarkup);
-$content = array(
-    'chat_id' => $chatid,
-    'reply_markup' => $encodedMarkup,
-    'text' => "$text"
-);
-
-$ch = curl_init();
-$url="https://api.telegram.org/1036235226:AAEHiMaeIW0CRa34AvVG7H4JWuUBJn_poIM/SendMessage";
-curl_setopt($ch, CURLOPT_URL, $url);
-curl_setopt($ch, CURLOPT_POST, 1);
-curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query($content));
-curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type: application/x-www-form-urlencoded'));
-curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
-
-// receive server response ...
-curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-
-$server_output = curl_exec ($ch);
-curl_close ($ch);
-var_dump($server_output);
-
-}
