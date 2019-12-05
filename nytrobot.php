@@ -35,7 +35,7 @@
 			
 		case "Hide Keyboard": // This is the same text inside a Keyboard
 			$msg = $querymsgid;
-			deleteMessage($ChatID, $msg);
+			sendMessage($ChatID, $msg);
 			break;
 
 		case "Inline Keyboard": // This is the same text inside a Keyboard
