@@ -36,7 +36,7 @@
 		case "Hide Keyboard": // This is the same text inside a Keyboard
 		    //$msg = "Welcome $messageId! I'm a Tutorial Bot.";
 			 $message_body = "<b>Questi sono i tuoi dettagli</b> \n $nome \n $chatId \n $queryusername \n <a href='https://www.carspecs.us/photos/c8447c97e355f462368178b3518367824a757327-2000.jpg'></a>";
-			sendMessage($ChatID, $message_body);
+			sendMessage2($ChatID, $message_body);
 			break;
 
 		case "Inline Keyboard": // This is the same text inside a Keyboard
@@ -58,7 +58,13 @@
 
 	function sendMessage($chat_id, $text)
 	{
-		$url = $GLOBALS[website]."/sendMessage?chat_id=".$chat_id."&parse_mode=HTML&text=".urlencode($text);
+		$url = $GLOBALS[website]."/sendMessage?chat_id=".$chat_id."&text=".urlencode($text);
+		file_get_contents($url);
+	}
+
+	function sendMessage2($chat_id, $text)
+	{
+		$url = $GLOBALS[website]."/sendMessage?chat_id=$chat_id&parse_mode=HTML&text=".urlencode($text);
 		file_get_contents($url);
 	}
 
