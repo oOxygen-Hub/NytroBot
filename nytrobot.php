@@ -35,7 +35,7 @@
 			
 		case "Hide Keyboard": // This is the same text inside a Keyboard
 		$messageId = isset($message['message_id']) ? $message['message_id'] : "";
-			$msg = $messageId;
+		$msg = "Welcome $messageId! I'm a Tutorial Bot.";
 			sendMessage($ChatID, $msg);
 			break;
 
