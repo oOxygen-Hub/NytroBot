@@ -14,12 +14,12 @@
 	switch ($Message)
 	{
 		case '/start':
-			$msg = "Welcome $FirstName! I'm a Tutorial Bot.";
+			$msg = "Benvenuto $FirstName! Io non sono umano sono un Robot.";
 			showKeyboard($ChatID, $msg);
 			break;
 
 		case '/keyboard': // Command to show normal Keyboard
-			$msg = "This is a Tutorial, this Keyboard has 3 buttons, click one to test.";
+			$msg = "Questo è il comando tastiera.";
 			showKeyboard($ChatID, $msg);
 			break;
 
@@ -28,12 +28,12 @@
 			sendMessage($ChatID, $msg);
 			break;
 
-		case "Normal Keyboard": // This is the same text inside a Keyboard
+		case "Tastiera Normale": // This is the same text inside a Keyboard
 			$msg = "Abracadabra and keyboard will appear!";
 			showKeyboard($ChatID, $msg);
 			break;
 			
-		case "Hide Keyboard": // This is the same text inside a Keyboard
+		case "Nascondi Tastiera": // This is the same text inside a Keyboard
 		    //$msg = "Welcome $messageId! I'm a Tutorial Bot.";
 			 $message_body = "<b>Questi sono i tuoi dettagli</b> \n $FirstName \n $ChatID \n $messageId \n https://www.carspecs.us/photos/c8447c97e355f462368178b3518367824a757327-2000.jpg";
 			sendMessageParseHtml($ChatID, $message_body);
@@ -44,7 +44,7 @@
 			inlineKeyboard($ChatID, $msg);
 			break;
 
-		case "Remove Keyboard": // This is the same text inside a Keyboard
+		case "Rimuovi Tastiera": // This is the same text inside a Keyboard
 			$msg = "Abracadabra and keyboard will disappear!";
 			removeKeyboard($ChatID, $msg);
 			break;
@@ -70,7 +70,7 @@
 
 	function showKeyboard($chat_id, $text)
 	{
-		$jSonCodeKeyboard = '&reply_markup={"keyboard":[["Normal%20Keyboard"],["Hide%20Keyboard","Remove%20Keyboard"]],"resize_keyboard":true}';
+		$jSonCodeKeyboard = '&reply_markup={"keyboard":[["Tastiera%20Normale"],["Nascondi%20Tastiera","Rimuovi%20Tastiera"]],"resize_keyboard":true}';
 		$url = $GLOBALS[website]."/sendMessage?chat_id=".$chat_id."&text=".urlencode($text).$jSonCodeKeyboard;
 		file_get_contents($url);
 	}
