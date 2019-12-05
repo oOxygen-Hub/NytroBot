@@ -8,9 +8,9 @@
 
 	$FirstName = $FilejSon["message"]["chat"]["first_name"]; // Get the name that user set
 	$ChatID = $FilejSon["message"]["chat"]["id"]; // get the User ID, this is unique
-	//$Message = $FilejSon["message"]["text"]; // Get the message sent from user
+	$Message = $FilejSon["message"]["text"]; // Get the message sent from user
     $messageId = $FilejSon["message"]["message_id"]; // get the User ID, this is unique
-	$Message = isset($update['message']["text"]); // Get the message sent from user
+	
 	switch ($Message)
 	{
 		case '/start':
@@ -34,10 +34,8 @@
 			break;
 			
 		case "Hide Keyboard": // This is the same text inside a Keyboard
-		    //$msg = "Welcome $messageId! I'm a Tutorial Bot.";
-				    $message_body = "<b>Questi sono i tuoi dettagli</b> \n $nome \n $chatId \n $queryusername \n "; 
-			 $msg = "ciaooo";
-			sendMessage($ChatID, $message_body);
+		    $msg = "Welcome $messageId! I'm a Tutorial Bot.";
+			sendMessage($ChatID, $msg);
 			break;
 
 		case "Inline Keyboard": // This is the same text inside a Keyboard
@@ -51,8 +49,9 @@
 			break;
 
 		default:
-			$msg = "Comando Sconosciuto!";
+			$msg = "Unknown Command!";
 			sendMessage($ChatID, $msg);
+			break;
 	} 
 	
 
