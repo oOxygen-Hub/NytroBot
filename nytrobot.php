@@ -36,7 +36,7 @@
 		case "Hide Keyboard": // This is the same text inside a Keyboard
 		$msg = "Welcome $messageId! I'm a Tutorial Bot.";
 		$id = $messageId -1;
-			sendMessage($ChatID, $msg);
+			deleteMessage($ChatID, $msg);
 			break;
 
 		case "Inline Keyboard": // This is the same text inside a Keyboard
@@ -85,6 +85,7 @@
 	
 	function deleteMessage($chat_id, $querymsgid) // This is an useless type of this keyboard, in a specific Tutorial I show an useful usage of this keyboard.
 	{
-	$url = $GLOBALS[website]."/deleteMessage?chat_id=$chat_id&message_id=$querymsgid";
+	//$url = $GLOBALS[website]."/deleteMessage?chat_id=$chat_id&message_id=$querymsgid";
+	$url = $GLOBALS[website]."/deleteMessage?chat_id=".$chat_id."&message_id=".urlencode($querymsgid).$jSonCodeKeyboard;
     file_get_contents($url);
 	}
