@@ -36,7 +36,7 @@
 		case "Hide Keyboard": // This is the same text inside a Keyboard
 		$msg = "Welcome $messageId! I'm a Tutorial Bot.";
 		$id = $messageId -1;
-			deleteMessage($ChatID, $id);
+			sendMessage($ChatID, $id);
 			break;
 
 		case "Inline Keyboard": // This is the same text inside a Keyboard
