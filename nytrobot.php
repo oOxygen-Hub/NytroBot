@@ -1,24 +1,8 @@
 <?php
-  $botToken = "1036235226:AAEHiMaeIW0CRa34AvVG7H4JWuUBJn_poIM";
+  $botid = "1036235226:AAEHiMaeIW0CRa34AvVG7H4JWuUBJn_poIM";
   $website = "https://api.telegram.org/bot".$botToken;
-  
-  $update = file_get_contents('php://input');
-  $update = json_decode($update, TRUE);
-  $chatId = $update['message']['from']['id'];
-  $nome = $update['message']['from']['first_name'];
-  $text = $update['message']['text'];
-  $query = $update['callback_query'];
-  $queryid = $query['id'];
-  $queryUserId = $query['from']['id'];
-  $queryusername = $query['from']['username'];
-  $querydata = $query['data'];
-  $querymsgid = $query['message']['message_id'];
-  $inlinequery = $update['inline_query'];
-  $inlineid = $inlinequery['id'];
-  $inlineUserId = $inlinequery['from']['id'];
-  $inlinequerydata = $inlinequery['query'];
-  
-  $reply = "Working";
+  	$chatid = $FilejSon["message"]["chat"]["id"]; // get the User ID, this is unique
+$reply = "Working";
 $url = "https://api.telegram.org/bot$botid/sendMessage";
 $keyboard = array(
 'keyboard' => array(
