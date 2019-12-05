@@ -63,8 +63,8 @@
 
 	function showKeyboard($chat_id, $text)
 	{
-		//$jSonCodeKeyboard = '&reply_markup={"keyboard":[["Normal%20Keyboard"],["Hide%20Keyboard","Remove%20Keyboard"]],"resize_keyboard":true}';
-		$jSonCodeKeyboard = '&reply_markup={"keyboard":["text":"Prova","callback_data":"Remove Keyboard"]}';
+		$jSonCodeKeyboard = '&reply_markup={"keyboard":[["Normal%20Keyboard"],["Hide%20Keyboard","Remove%20Keyboard"]],"resize_keyboard":true}';
+		//$jSonCodeKeyboard = '&reply_markup={"keyboard":["text":"Prova","callback_data":"Remove Keyboard"]}';
 		$url = $GLOBALS[website]."/sendMessage?chat_id=".$chat_id."&text=".urlencode($text).$jSonCodeKeyboard;
 		file_get_contents($url);
 	}
@@ -82,4 +82,3 @@
 		$url = $GLOBALS[website]."/sendMessage?chat_id=".$chat_id."&text=".urlencode($text).$jSonCodeKeyboard;
 		file_get_contents($url);
 	}
-
