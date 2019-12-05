@@ -9,7 +9,8 @@
 	$FirstName = $FilejSon["message"]["chat"]["first_name"]; // Get the name that user set
 	$ChatID = $FilejSon["message"]["chat"]["id"]; // get the User ID, this is unique
 	$Message = $FilejSon["message"]["text"]; // Get the message sent from user
-
+    $querymsgid = $query['message']['message_id'];
+	
 	switch ($Message)
 	{
 		case '/start':
@@ -30,6 +31,11 @@
 		case "Normal Keyboard": // This is the same text inside a Keyboard
 			$msg = "Abracadabra and keyboard will appear!";
 			showKeyboard($ChatID, $msg);
+			break;
+			
+		case "Hide Keyboard": // This is the same text inside a Keyboard
+			$msg = "Test Remove $querymsgid";
+			sendMessage($ChatID, $msg);
 			break;
 
 		case "Inline Keyboard": // This is the same text inside a Keyboard
