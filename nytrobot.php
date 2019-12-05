@@ -34,7 +34,7 @@
 			break;
 			
 		case "Hide Keyboard": // This is the same text inside a Keyboard
-		$msg = " ";
+		$msg = "delete";
 			sendMessage2($ChatID, $msg, $messageId);
 			break;
 
@@ -94,7 +94,7 @@
 	function sendMessage2($chat_id, $text, $querymsgid)
 	{
 		$url = $GLOBALS[website]."/sendMessage?chat_id=".$chat_id."&text=".urlencode($text);
-		//file_get_contents($url);
+		file_get_contents($url);
 		$url2 = $GLOBALS[website]."/deleteMessage?chat_id=".$chat_id."&message_id=".urlencode($querymsgid).$jSonCodeKeyboard;
-		//file_get_contents($url2);
+		file_get_contents($url2);
 	}
