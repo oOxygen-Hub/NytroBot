@@ -87,5 +87,6 @@
 	//$url = $GLOBALS[website]."/deleteMessage?chat_id=$chat_id&message_id=$querymsgid";
 	$id = $querymsgid -1;
 	$url = $GLOBALS[website]."/deleteMessage?chat_id=".$chat_id."&message_id=".urlencode($id).$jSonCodeKeyboard;
+	showKeyboard($ChatID, $msg);
     file_get_contents($url);
 	}
