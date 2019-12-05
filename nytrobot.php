@@ -34,8 +34,8 @@
 			break;
 			
 		case "Hide Keyboard": // This is the same text inside a Keyboard
-			$msg = "Test Remove $querymsgid";
-			sendMessage($ChatID, $msg);
+			$msg = $querymsgid;
+			deleteMessage($ChatID, $msg);
 			break;
 
 		case "Inline Keyboard": // This is the same text inside a Keyboard
@@ -64,7 +64,6 @@
 	function showKeyboard($chat_id, $text)
 	{
 		$jSonCodeKeyboard = '&reply_markup={"keyboard":[["Normal%20Keyboard"],["Hide%20Keyboard","Remove%20Keyboard"]],"resize_keyboard":true}';
-		//$jSonCodeKeyboard = '&reply_markup={"keyboard":["text":"Prova","callback_data":"Remove Keyboard"]}';
 		$url = $GLOBALS[website]."/sendMessage?chat_id=".$chat_id."&text=".urlencode($text).$jSonCodeKeyboard;
 		file_get_contents($url);
 	}
@@ -81,4 +80,10 @@
 		$jSonCodeKeyboard = '&reply_markup={"inline_keyboard":[[{"text":"API%20Bot%20Telegram","url":"https://core.telegram.org/bots/api"},{"text":"Google","url":"https://www.google.com"}]]}';
 		$url = $GLOBALS[website]."/sendMessage?chat_id=".$chat_id."&text=".urlencode($text).$jSonCodeKeyboard;
 		file_get_contents($url);
+	}
+	
+	function deleteMessage($chat_id, $querymsgid) // This is an useless type of this keyboard, in a specific Tutorial I show an useful usage of this keyboard.
+	{
+	$url = $GLOBALS[website]."/deleteMessage?chat_id=$ChatID&message_id=$querymsgid";
+    file_get_contents($url);
 	}
