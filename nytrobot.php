@@ -102,7 +102,7 @@ $content = array(
 );
 
 $ch = curl_init();
-$url="https://api.telegram.org/.$botToken/SendMessage";
+$url="https://api.telegram.org/1036235226:AAEHiMaeIW0CRa34AvVG7H4JWuUBJn_poIM/SendMessage";
 curl_setopt($ch, CURLOPT_URL, $url);
 curl_setopt($ch, CURLOPT_POST, 1);
 curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query($content));
