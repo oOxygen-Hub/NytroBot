@@ -53,7 +53,6 @@
 		default:
 			$msg = "Comando Sconosciuto!";
 			sendMessage($ChatID, $msg);
-			break;
 	} 
 	
 
