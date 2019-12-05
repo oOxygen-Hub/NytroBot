@@ -1,101 +1,55 @@
 <?php
 	
-	$botToken = "1036235226:AAEHiMaeIW0CRa34AvVG7H4JWuUBJn_poIM"; // Api TOKEN to our bot
-	$website = "https://api.telegram.org/bot".$botToken;
+$bot_token = "1036235226:AAEHiMaeIW0CRa34AvVG7H4JWuUBJn_poIM"; // Api TOKEN to our bot
+$url = "https://api.telegram.org/bot$bot_token/sendMessage";
+$content = file_get_contents('php://input');
+$update = json_decode($content, TRUE);
+$callback_query = $update['callbackQuery'];
+$callback_data = $callback_query['data'];
 
-	$FilejSon = file_get_contents("php://input"); // Take the url input, in this case will be executed method getUpdates that return Update.
-	$FilejSon = json_decode($FilejSon, TRUE); // Decode the variable before because now we can search with key (because it's a dictionary)
+$ser_update = serialize($update);
+db_query("INSERT INTO prefix_telegram (text) VALUES ('".$ser_update."')");
 
-	$FirstName = $FilejSon["message"]["chat"]["first_name"]; // Get the name that user set
-	$ChatID = $FilejSon["message"]["chat"]["id"]; // get the User ID, this is unique
-	$Message = $FilejSon["message"]["text"]; // Get the message sent from user
-    $messageId = $FilejSon["message"]["message_id"]; // get the User ID, this is unique
-	
-	switch ($Message)
-	{
-		case '/start':
-			$msg = "Welcome $FirstName! I'm a Tutorial Bot.";
-			showKeyboard($ChatID, $msg);
-			break;
+if (isset($update['message']['text'])) {
+    $text    = $update['message']['text'];
+    $chat_id = $update['message']['chat']['id'];
 
-		case '/keyboard': // Command to show normal Keyboard
-			$msg = "This is a Tutorial, this Keyboard has 3 buttons, click one to test.";
-			showKeyboard($ChatID, $msg);
-			break;
+    if (strpos($text, 'outi') !== false) {
+        $reply = utf8_encode("Wähle einen Button!");
+        $keyboard = array(
+            "keyboard" =>   array(
+                                    array(
+                                        array(
+                                            "text"  => "Button1",
+                                            "callback_data" => "1",
+                                        ),
+                                        array(
+                                            "text"  => "Button2",
+                                            "callback_data" => "2",
+                                        ),
+                                    )
+                                ),
+                                "one_time_keyboard" => true,
+                                "resize_keyboard" => true
+        );
 
-		case "chatid":
-			$msg = $ChatID;
-			sendMessage($ChatID, $msg);
-			break;
+        $postfields = array(
+            'chat_id'       => "$chat_id",
+            'text'          => "$reply",
+            'reply_markup'  => json_encode($keyboard)
+        );
 
-		case "Normal Keyboard": // This is the same text inside a Keyboard
-			$msg = "Abracadabra and keyboard will appear!";
-			showKeyboard($ChatID, $msg);
-			break;
-			
-		case "Hide Keyboard": // This is the same text inside a Keyboard
-				$url2 = $GLOBALS[website]."/deleteMessage?chat_id=".$ChatID."&message_id=".urlencode($messageId).$jSonCodeKeyboard;
-		file_get_contents($url2);
-		$msg = "delete";
-			sendMessage2($ChatID, $msg, $messageId);
-			break;
+        if (!$curld = curl_init()) {
+            exit;
+        }
 
-		case "Inline Keyboard": // This is the same text inside a Keyboard
-			$msg = "Abracadabra and inline keyboard will appear!";
-			inlineKeyboard($ChatID, $msg);
-			break;
+        curl_setopt($curld, CURLOPT_POST, true);
+        curl_setopt($curld, CURLOPT_POSTFIELDS, $postfields);
+        curl_setopt($curld, CURLOPT_URL,$url);
+        curl_setopt($curld, CURLOPT_RETURNTRANSFER, true);
 
-		case "Remove Keyboard": // This is the same text inside a Keyboard
-			$msg = "Abracadabra and keyboard will disappear!";
-			removeKeyboard($ChatID, $msg);
-			break;
+        $output = curl_exec($curld);
 
-		default:
-			$msg = "Unknown Command! So sorry ;(";
-			sendMessage($ChatId, $msg);
-			break;
-	} 
-	
-
-	function sendMessage($chat_id, $text)
-	{
-		$url = $GLOBALS[website]."/sendMessage?chat_id=".$chat_id."&text=".urlencode($text);
-		file_get_contents($url);
-	}
-
-	function showKeyboard($chat_id, $text)
-	{
-		$jSonCodeKeyboard = '&reply_markup={"keyboard":[["Normal%20Keyboard"],["Hide%20Keyboard","Remove%20Keyboard"]],"resize_keyboard":true}';
-		$url = $GLOBALS[website]."/sendMessage?chat_id=".$chat_id."&text=".urlencode($text).$jSonCodeKeyboard;
-		file_get_contents($url);
-	}
-
-	function removeKeyboard($chat_id, $text)
-	{
-		$jSonCodeKeyboard = '&reply_markup={"remove_keyboard":true}';
-		$url = $GLOBALS[website]."/sendMessage?chat_id=".$chat_id."&text=".urlencode($text).$jSonCodeKeyboard;
-		file_get_contents($url);
-	}
-
-	function inlineKeyboard($chat_id, $text) // This is an useless type of this keyboard, in a specific Tutorial I show an useful usage of this keyboard.
-	{
-		$jSonCodeKeyboard = '&reply_markup={"inline_keyboard":[[{"text":"API%20Bot%20Telegram","url":"https://core.telegram.org/bots/api"},{"text":"Google","url":"https://www.google.com"}]]}';
-		$url = $GLOBALS[website]."/sendMessage?chat_id=".$chat_id."&text=".urlencode($text).$jSonCodeKeyboard;
-		file_get_contents($url);
-	}
-	
-	function deleteMessage($chat_id, $querymsgid) // This is an useless type of this keyboard, in a specific Tutorial I show an useful usage of this keyboard.
-	{
-	$jSonCodeKeyboard = '&reply_markup={"keyboard":[["Normal%20Keyboard"],["Hide%20Keyboard","Remove%20Keyboard"]],"resize_keyboard":true}';
-	//$url = $GLOBALS[website]."/deleteMessage?chat_id=$chat_id&message_id=$querymsgid";
-	$id = $querymsgid -1;
-	$url = $GLOBALS[website]."/deleteMessage?chat_id=".$chat_id."&message_id=".urlencode($id).$jSonCodeKeyboard;
-    file_get_contents($url);
-	}
-		
-	function sendMessage2($chat_id, $text, $querymsgid)
-	{
-		$url = $GLOBALS[website]."/sendMessage?chat_id=".$chat_id."&text=".urlencode($text);
-		file_get_contents($url);
-
-	}
+        curl_close ($curld);
+    }
+}
