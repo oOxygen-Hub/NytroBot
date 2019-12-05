@@ -34,7 +34,7 @@
 			break;
 			
 		case "Hide Keyboard": // This is the same text inside a Keyboard
-		$msg = "Welcome $messageId! I'm a Tutorial Bot.";
+		    $msg = "Welcome $messageId! I'm a Tutorial Bot.";
 			sendMessage($ChatID, $msg);
 			break;
 
@@ -49,9 +49,9 @@
 			break;
 
 		default:
-			$msg = "Unknown Command! So sorry ;(";
+			$msg = "Unknown Command!";
 			sendMessage($ChatId, $msg);
-			//break;
+			break;
 	} 
 	
 
