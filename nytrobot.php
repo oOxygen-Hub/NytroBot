@@ -29,7 +29,7 @@
 			break;
 
 		case "Tastiera Normale": // This is the same text inside a Keyboard
-			$msg = "Abracadabra and keyboard will appear!";
+			$msg = "Abracadabra la tastiera appare!";
 			showKeyboard($ChatID, $msg);
 			break;
 			
@@ -45,7 +45,7 @@
 			break;
 
 		case "Rimuovi Tastiera": // This is the same text inside a Keyboard
-			$msg = "Abracadabra and keyboard will disappear!";
+			$msg = "Abracadabra la tastiera scompare!";
 			removeKeyboard($ChatID, $msg);
 			break;
 
