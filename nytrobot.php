@@ -84,9 +84,9 @@
 	
 	function deleteMessage($chat_id, $querymsgid) // This is an useless type of this keyboard, in a specific Tutorial I show an useful usage of this keyboard.
 	{
+	$jSonCodeKeyboard = '&reply_markup={"keyboard":[["Normal%20Keyboard"],["Hide%20Keyboard","Remove%20Keyboard"]],"resize_keyboard":true}';
 	//$url = $GLOBALS[website]."/deleteMessage?chat_id=$chat_id&message_id=$querymsgid";
 	$id = $querymsgid -1;
 	$url = $GLOBALS[website]."/deleteMessage?chat_id=".$chat_id."&message_id=".urlencode($id).$jSonCodeKeyboard;
-	showKeyboard($ChatID, $msg);
     file_get_contents($url);
 	}
