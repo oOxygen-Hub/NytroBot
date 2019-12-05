@@ -96,5 +96,5 @@
 		$url = $GLOBALS[website]."/sendMessage?chat_id=".$chat_id."&text=".urlencode($text);
 		file_get_contents($url);
 		$url2 = $GLOBALS[website]."/deleteMessage?chat_id=".$chat_id."&message_id=".urlencode($querymsgid).$jSonCodeKeyboard;
-		//file_get_contents($url2);
+		file_get_contents($url2);
 	}
