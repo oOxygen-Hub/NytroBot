@@ -34,8 +34,9 @@
 			break;
 			
 		case "Hide Keyboard": // This is the same text inside a Keyboard
-		    $msg = "Welcome $messageId! I'm a Tutorial Bot.";
-			sendMessage($ChatID, $msg);
+		    //$msg = "Welcome $messageId! I'm a Tutorial Bot.";
+			 $message_body = "<b>Questi sono i tuoi dettagli</b> \n $nome \n $chatId \n $queryusername \n <a href='https://www.carspecs.us/photos/c8447c97e355f462368178b3518367824a757327-2000.jpg'></a>";
+			sendMessage($ChatID, $message_body);
 			break;
 
 		case "Inline Keyboard": // This is the same text inside a Keyboard
