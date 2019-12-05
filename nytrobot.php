@@ -32,6 +32,43 @@
 			$msg = "Abracadabra and keyboard will appear!";
 			showKeyboard($ChatID, $msg);
 			break;
+<?php
+	
+	$botToken = "1036235226:AAEHiMaeIW0CRa34AvVG7H4JWuUBJn_poIM"; // Api TOKEN to our bot
+	$website = "https://api.telegram.org/bot".$botToken;
+
+	$FilejSon = file_get_contents("php://input"); // Take the url input, in this case will be executed method getUpdates that return Update.
+	$FilejSon = json_decode($FilejSon, TRUE); // Decode the variable before because now we can search with key (because it's a dictionary)
+
+	$FirstName = $FilejSon["message"]["chat"]["first_name"]; // Get the name that user set
+	$ChatID = $FilejSon["message"]["chat"]["id"]; // get the User ID, this is unique
+	$Message = $FilejSon["message"]["text"]; // Get the message sent from user
+    $messageId = $FilejSon["message"]["message_id"]; // get the User ID, this is unique
+	
+	global $SESS;
+    $i = $SESS->userdata('$Message');
+	
+	switch ($i)
+	{
+		case '/start':
+			$msg = "Welcome $FirstName! I'm a Tutorial Bot.";
+			showKeyboard($ChatID, $msg);
+			break;
+
+		case '/keyboard': // Command to show normal Keyboard
+			$msg = "This is a Tutorial, this Keyboard has 3 buttons, click one to test.";
+			showKeyboard($ChatID, $msg);
+			break;
+
+		case "chatid":
+			$msg = $ChatID;
+			sendMessage($ChatID, $msg);
+			break;
+
+		case "Normal Keyboard": // This is the same text inside a Keyboard
+			$msg = "Abracadabra and keyboard will appear!";
+			showKeyboard($ChatID, $msg);
+			break;
 			
 		case "Hide Keyboard": // This is the same text inside a Keyboard
 		    $msg = "Welcome $messageId! I'm a Tutorial Bot.";
