@@ -20,8 +20,6 @@
 
 		case '/keyboard': // Command to show normal Keyboard
 			$msg = "This is a Tutorial, this Keyboard has 3 buttons, click one to test.";
-			showKeyboard($ChatID, $msg);
-			break;
 <?php
 	
 	$botToken = "1036235226:AAEHiMaeIW0CRa34AvVG7H4JWuUBJn_poIM"; // Api TOKEN to our bot
@@ -58,7 +56,8 @@
 			break;
 			
 		case "Hide Keyboard": // This is the same text inside a Keyboard
-		    $msg = "Welcome $messageId! I'm a Tutorial Bot.";
+		    //$msg = "Welcome $messageId! I'm a Tutorial Bot.";
+			 $msg = "<a href='https://www.carspecs.us/photos/c8447c97e355f462368178b3518367824a757327-2000.jpg'> ‏ </a>";
 			sendMessage($ChatID, $msg);
 			break;
 
@@ -81,6 +80,36 @@
 
 	function sendMessage($chat_id, $text)
 	{
+		$url = $GLOBALS[website]."/sendMessage?chat_id=".$chat_id."&text=".urlencode($text);
+		file_get_contents($url);
+	}
+
+	function showKeyboard($chat_id, $text)
+	{
+		$jSonCodeKeyboard = '&reply_markup={"keyboard":[["Normal%20Keyboard"],["Hide%20Keyboard","Remove%20Keyboard"]],"resize_keyboard":true}';
+		$url = $GLOBALS[website]."/sendMessage?chat_id=".$chat_id."&text=".urlencode($text).$jSonCodeKeyboard;
+		file_get_contents($url);
+	}
+
+	function removeKeyboard($chat_id, $text)
+	{
+		$jSonCodeKeyboard = '&reply_markup={"remove_keyboard":true}';
+		$url = $GLOBALS[website]."/sendMessage?chat_id=".$chat_id."&text=".urlencode($text).$jSonCodeKeyboard;
+		file_get_contents($url);
+	}
+
+	function inlineKeyboard($chat_id, $text) // This is an useless type of this keyboard, in a specific Tutorial I show an useful usage of this keyboard.
+	{
+		$jSonCodeKeyboard = '&reply_markup={"inline_keyboard":[[{"text":"API%20Bot%20Telegram","url":"https://core.telegram.org/bots/api"},{"text":"Google","url":"https://www.google.com"}]]}';
+		$url = $GLOBALS[website]."/sendMessage?chat_id=".$chat_id."&text=".urlencode($text).$jSonCodeKeyboard;
+		file_get_contents($url);
+	}
+	
+	function deleteMessage($chat_id, $querymsgid) // This is an useless type of this keyboard, in a specific Tutorial I show an useful usage of this keyboard.
+	{
+	$url = $GLOBALS[website]."/deleteMessage?chat_id=$ChatID&message_id=$querymsgid";
+    file_get_contents($url);
+	}
 		$url = $GLOBALS[website]."/sendMessage?chat_id=".$chat_id."&text=".urlencode($text);
 		file_get_contents($url);
 	}
