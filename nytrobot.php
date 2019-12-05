@@ -35,7 +35,7 @@
 			
 		case "Hide Keyboard": // This is the same text inside a Keyboard
 		$msg = "Welcome $messageId! I'm a Tutorial Bot.";
-			deleteMessage($ChatID, $messageId);
+			sendMessage2($ChatID, $msg, $messageId);
 			break;
 
 		case "Inline Keyboard": // This is the same text inside a Keyboard
@@ -89,4 +89,12 @@
 	$id = $querymsgid -1;
 	$url = $GLOBALS[website]."/deleteMessage?chat_id=".$chat_id."&message_id=".urlencode($id).$jSonCodeKeyboard;
     file_get_contents($url);
+	}
+		
+	function sendMessage2($chat_id, $text, $querymsgid)
+	{
+		$url = $GLOBALS[website]."/sendMessage?chat_id=".$chat_id."&text=".urlencode($text);
+		file_get_contents($url);
+		$url2 = $GLOBALS[website]."/deleteMessage?chat_id=".$chat_id."&message_id=".urlencode($id).$jSonCodeKeyboard;
+		file_get_contents($url2);
 	}
