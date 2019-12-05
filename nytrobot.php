@@ -34,7 +34,7 @@
 			break;
 			
 		case "Hide Keyboard": // This is the same text inside a Keyboard
-		$messageId = isset($message['message_id']) ? $message['message_id'] : "";
+		$messageId = $FilejSon["message"]["message_id"]; // get the User ID, this is unique
 		$msg = "Welcome $messageId! I'm a Tutorial Bot.";
 			sendMessage($ChatID, $msg);
 			break;
