@@ -50,9 +50,8 @@
 			break;
 			
 		case "Invia Immagine": // This is the same text inside a Keyboard
-			$msg = "Abracadabra la tastiera scompare!";
 			$photoUrl ="http://ooxygen.tech/Nytro_Bot/Immagini/Nytrobot.jpg"; 
-			$photoDesc ="Immagine Inviata";
+			$photoDesc ="<b>Questi sono i tuoi dettagli</b> \n $FirstName \n $ChatID \n $messageId \n https://www.carspecs.us/photos/c8447c97e355f462368178b3518367824a757327-2000.jpg";
 			sendImage($ChatID, $photoUrl, $photoDesc);
 			break;
 
