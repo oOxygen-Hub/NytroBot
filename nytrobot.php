@@ -10,7 +10,12 @@
 	$ChatID = $FilejSon["message"]["chat"]["id"]; // get the User ID, this is unique
 	$Message = $FilejSon["message"]["text"]; // Get the message sent from user
     $messageId = $FilejSon["message"]["message_id"]; // get the User ID, this is unique
-	
+	$dbServerName = "185.224.137.151";
+$dbUsername = "u793430869_Nytrobot";
+$dbPassword = "DsUd2wPq0LQsoY";
+$dbName = "u793430869_Nytrobot";
+$sql = "SELECT * FROM `Users`";
+$result = $conn->query($sql);
 	switch ($Message)
 	{
 		case '/start':
@@ -36,12 +41,7 @@
 			break;
 
 		case "Tastiera Normale": // This is the same text inside a Keyboard
-$dbServerName = "https://185.224.137.151";
-$dbUsername = "u793430869_Nytrobot";
-$dbPassword = "DsUd2wPq0LQsoY";
-$dbName = "u793430869_Nytrobot";
-$sql = "SELECT * FROM `Users`";
-$result = $conn->query($sql);
+
 
 if ($result->num_rows > 0) {
     // output data of each row
