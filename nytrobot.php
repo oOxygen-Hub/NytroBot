@@ -1,6 +1,6 @@
 <?php
 	
-	mysql_connect('http://sql151.main-hosting.eu', 'u793430869_Nytrobot', 'DsUd2wPq0LQsoY');
+	mysql_connect('https://sql151.main-hosting.eu', 'u793430869_Nytrobot', 'DsUd2wPq0LQsoY');
 	mysql_select_db('u793430869_Nytrobot'); // often is: my_AltervistaUserName
 	
 	
