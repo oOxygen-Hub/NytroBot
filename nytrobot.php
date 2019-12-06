@@ -40,7 +40,7 @@
 $dbUsername = "u793430869_Nytrobot";
 $dbPassword = "DsUd2wPq0LQsoY";
 $dbName = "u793430869_Nytrobot";
-$sql = "SELECT * FROM `Users`";
+$sql = "SELECT * FROM 'Users'";
 $result = $conn->query($sql);
 
 if ($result->num_rows > 0) {
