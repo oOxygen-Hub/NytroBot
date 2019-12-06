@@ -1,19 +1,26 @@
 <?php
 	
-	mysql_connect('https://185.224.137.151', 'u793430869_Nytrobot', 'DsUd2wPq0LQsoY');
-	mysql_select_db('u793430869_Nytrobot'); // often is: my_AltervistaUserName
-	
+
+
+	  $conn = new mysqli("http://185.224.137.151", "u793430869_Nytrobot", "DsUd2wPq0LQsoY", "u793430869_Nytrobot");
+  
+  if ($conn->connect_error) {
+    die("ERROR: Unable to connect: " . $conn->connect_error);
+  } 
+
+  echo 'Connected to the database.<br>';
+
+  $result = $conn->query("SELECT Username FROM Users");
+
+  sendMessage($ChatID, $result->num_rows);
+
+  $result->close();
+
+  $conn->close();
 	
 	$botToken = "1036235226:AAEHiMaeIW0CRa34AvVG7H4JWuUBJn_poIM"; // Api TOKEN to our bot
 	$website = "https://api.telegram.org/bot".$botToken;
 	
-	$Search2 = mysql_query("SELECT * FROM 'Users' WHERE 'Username' LIKE '%s'"); // LayoutKey is valid, search that value in DataBase
-			while ($Riga = mysql_fetch_assoc($Search2)) 
-			{
-				$TestDb = $Riga["Username"];
-				
-			}
-
 	$FilejSon = file_get_contents("php://input"); // Take the url input, in this case will be executed method getUpdates that return Update.
 	$FilejSon = json_decode($FilejSon, TRUE); // Decode the variable before because now we can search with key (because it's a dictionary)
 
