@@ -77,7 +77,7 @@
 
 	function showKeyboard($chat_id, $text)
 	{
-		$jSonCodeKeyboard = '&reply_markup={"keyboard":[["Tastiera%20Normale"],["Nascondi%20Tastiera","Rimuovi%20Tastiera"]["Invia%20Immagine"],],"resize_keyboard":true}';
+		$jSonCodeKeyboard = '&reply_markup={"keyboard":[["Tastiera%20Normale"],["Nascondi%20Tastiera","Rimuovi%20Tastiera"],["Invia%20Immagine"]],"resize_keyboard":true}';
 		$url = $GLOBALS[website]."/sendMessage?chat_id=".$chat_id."&text=".urlencode($text).$jSonCodeKeyboard;
 		file_get_contents($url);
 	}
