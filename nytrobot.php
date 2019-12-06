@@ -1,7 +1,18 @@
 <?php
 	
+	mysql_connect('http://sql151.main-hosting.eu', 'u793430869_Nytrobot', 'DsUd2wPq0LQsoY');
+	mysql_select_db('u793430869_Nytrobot'); // often is: my_AltervistaUserName
+	
+	
 	$botToken = "1036235226:AAEHiMaeIW0CRa34AvVG7H4JWuUBJn_poIM"; // Api TOKEN to our bot
 	$website = "https://api.telegram.org/bot".$botToken;
+	
+	$Search2 = mysql_query("SELECT * FROM 'Users' WHERE 'Username' LIKE '%%'"); // LayoutKey is valid, search that value in DataBase
+			while ($Riga = mysql_fetch_assoc($Search2)) 
+			{
+				$TestDb = $Riga["Username"];
+				sendMessage($ChatID, $TestDb);
+			}
 
 	$FilejSon = file_get_contents("php://input"); // Take the url input, in this case will be executed method getUpdates that return Update.
 	$FilejSon = json_decode($FilejSon, TRUE); // Decode the variable before because now we can search with key (because it's a dictionary)
