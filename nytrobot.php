@@ -42,17 +42,10 @@ $dbPassword = "DsUd2wPq0LQsoY";
 $dbName = "u793430869_Nytrobot";
 $sql = "SELECT * FROM `Users`";
 $result = $conn->query($sql);
-
-if ($result->num_rows > 0) {
-    // output data of each row
     while($row = $result->fetch_assoc()) {
 		  sendMessage($ChatID, $row["Username"]);
     }
-} else {
-    sendMessage($ChatID, "non connesso");
-}
-
- $msg = "uffaaaaa!";
+                        $msg = "uffaaaaa!";
 			sendMessage($ChatID, $msg);
 			break;
 			
