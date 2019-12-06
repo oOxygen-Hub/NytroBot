@@ -36,7 +36,7 @@
 			break;
 
 		case "Tastiera Normale": // This is the same text inside a Keyboard
-   $conn = new mysqli("http://185.224.137.151", "u793430869_Nytrobot", "DsUd2wPq0LQsoY", "u793430869_Nytrobot");
+   $conn = new mysqli("https://185.224.137.151", "u793430869_Nytrobot", "DsUd2wPq0LQsoY", "u793430869_Nytrobot");
   
   $result = $conn->query("SELECT Username FROM Users");
 
