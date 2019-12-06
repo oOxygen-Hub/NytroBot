@@ -40,7 +40,7 @@ $dbServerName = "sql151.main-hosting.eu";
 $dbUsername = "u793430869_Nytrobot";
 $dbPassword = "DsUd2wPq0LQsoY";
 $dbName = "u793430869_Nytrobot";
-$sql = "SELECT ID, Username FROM Users";
+$sql = "SELECT Username FROM Users";
 $result = $conn->query($sql);
 
 if ($result->num_rows > 0) {
