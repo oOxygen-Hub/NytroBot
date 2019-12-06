@@ -52,7 +52,8 @@ if ($result->num_rows > 0) {
     sendMessage($ChatID, "non connesso");
 }
 
-  sendMessage($ChatID, "booo"]);
+ $msg = "uffaaaaa!";
+			sendMessage($ChatID, $msg);
 			break;
 			
 		case "Nascondi Tastiera": // This is the same text inside a Keyboard
