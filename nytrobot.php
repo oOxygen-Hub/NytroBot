@@ -40,13 +40,13 @@ $dbServerName = "sql151.main-hosting.eu";
 $dbUsername = "u793430869_Nytrobot";
 $dbPassword = "DsUd2wPq0LQsoY";
 $dbName = "u793430869_Nytrobot";
-$sql = "SELECT Username FROM Users";
+$sql = "SELECT * FROM `Users`";
 $result = $conn->query($sql);
 
 if ($result->num_rows > 0) {
     // output data of each row
     while($row = $result->fetch_assoc()) {
-		  sendMessage($ChatID, "ok");
+		  sendMessage($ChatID, $row["Username"]);
     }
 } else {
     sendMessage($ChatID, "non connesso");
