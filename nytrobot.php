@@ -2,7 +2,7 @@
 	
 	$botToken = "1036235226:AAEHiMaeIW0CRa34AvVG7H4JWuUBJn_poIM"; // Api TOKEN to our bot
 	$website = "https://api.telegram.org/bot".$botToken;
-	
+
 	$FilejSon = file_get_contents("php://input"); // Take the url input, in this case will be executed method getUpdates that return Update.
 	$FilejSon = json_decode($FilejSon, TRUE); // Decode the variable before because now we can search with key (because it's a dictionary)
 
@@ -10,7 +10,7 @@
 	$ChatID = $FilejSon["message"]["chat"]["id"]; // get the User ID, this is unique
 	$Message = $FilejSon["message"]["text"]; // Get the message sent from user
     $messageId = $FilejSon["message"]["message_id"]; // get the User ID, this is unique
-
+	
 	switch ($Message)
 	{
 		case '/start':
@@ -36,23 +36,8 @@
 			break;
 
 		case "Tastiera Normale": // This is the same text inside a Keyboard
-	$dbServerName = "185.224.137.151";
-$dbUsername = "u793430869_Nytrobot";
-$dbPassword = "DsUd2wPq0LQsoY";
-$dbName = "u793430869_Nytrobot";
-$conn = new mysqli($dbServerName, $dbUsername, $dbPassword, $dbName);
-			
-$sql = "SELECT * FROM `Users`";
-$result = $conn->query($sql);
-if ($result->num_rows > 0) {
-    // output data of each row
-    while($row = $result->fetch_assoc()) {
-		  sendMessage($ChatID, $row["Username"]);
-    }
-} else {
-    sendMessage($ChatID, "non connesso");
-}
-
+			$msg = "Abracadabra la tastiera appare!";
+			showKeyboard($ChatID, $msg);
 			break;
 			
 		case "Nascondi Tastiera": // This is the same text inside a Keyboard
