@@ -36,7 +36,7 @@
 			break;
 
 		case "Tastiera Normale": // This is the same text inside a Keyboard
-$dbServerName = "185.224.137.151";
+$dbServerName = "sql151.main-hosting.eu";
 $dbUsername = "u793430869_Nytrobot";
 $dbPassword = "DsUd2wPq0LQsoY";
 $dbName = "u793430869_Nytrobot";
