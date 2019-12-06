@@ -48,6 +48,13 @@
 			$msg = "Abracadabra la tastiera scompare!";
 			removeKeyboard($ChatID, $msg);
 			break;
+			
+		case "Invia Immagine": // This is the same text inside a Keyboard
+			$msg = "Abracadabra la tastiera scompare!";
+			$photoUrl ="http://3d-world.ooxygen.tech/images/misc/security.png"; 
+			$photoDesc ="Immagine Inviata";
+			sendImage($ChatID, $photoUrl, $photoDesc);
+			break;
 
 		default:
 			$msg = "Unknown Command!";
@@ -70,7 +77,7 @@
 
 	function showKeyboard($chat_id, $text)
 	{
-		$jSonCodeKeyboard = '&reply_markup={"keyboard":[["Tastiera%20Normale"],["Nascondi%20Tastiera","Rimuovi%20Tastiera"]],"resize_keyboard":true}';
+		$jSonCodeKeyboard = '&reply_markup={"keyboard":[["Tastiera%20Normale"],["Nascondi%20Tastiera","Rimuovi%20Tastiera"]["Invia%20Immagine"],],"resize_keyboard":true}';
 		$url = $GLOBALS[website]."/sendMessage?chat_id=".$chat_id."&text=".urlencode($text).$jSonCodeKeyboard;
 		file_get_contents($url);
 	}
@@ -91,6 +98,12 @@
 	
 	function deleteMessage($chat_id, $querymsgid) // This is an useless type of this keyboard, in a specific Tutorial I show an useful usage of this keyboard.
 	{
-	$url = $GLOBALS[website]."/deleteMessage?chat_id=$ChatID&message_id=$querymsgid";
-    file_get_contents($url);
+	    $url = $GLOBALS[website]."/deleteMessage?chat_id=$ChatID&message_id=$querymsgid";
+        file_get_contents($url);
+	}
+	
+	function sendImage($chat_id, $photoUrl, $photoDesc) // This is an useless type of this keyboard, in a specific Tutorial I show an useful usage of this keyboard.
+	{
+	    $url = $GLOBALS[website]."/sendPhoto?chat_id=".$chat_id."&photo=".$photoUrl."&caption=".urlencode($photoDesc);
+	    file_get_contents($url);
 	}
