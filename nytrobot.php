@@ -46,9 +46,10 @@
 			break;
 
 		case "Rimuovi Tastiera": // This is the same text inside a Keyboard
-			$msg = "Abracadabra la tastiera scompare!";
-			removeKeyboard($ChatID, $msg);
-			break;
+			//$msg = "Abracadabra la tastiera scompare!";
+			//removeKeyboard($ChatID, $msg);
+			//break;
+			deleteMessage($ChatID, "last");
 			
 		case "Invia Immagine": // This is the same text inside a Keyboard
 			$photoUrl ="http://ooxygen.tech/Nytro_Bot/Immagini/Nytrobot.jpg"; 
@@ -98,7 +99,7 @@
 	
 	function deleteMessage($chat_id, $querymsgid) // This is an useless type of this keyboard, in a specific Tutorial I show an useful usage of this keyboard.
 	{
-	    $url = $GLOBALS[website]."/deleteMessage?chat_id=$ChatID&message_id=$querymsgid";
+	    $url = $GLOBALS[website]."/deleteMessage?chat_id=$ChatID&message_id=last";
         file_get_contents($url);
 	}
 	
