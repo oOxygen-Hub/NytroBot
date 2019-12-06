@@ -1,23 +1,5 @@
 <?php
 	
-
-
-	  $conn = new mysqli("http://185.224.137.151", "u793430869_Nytrobot", "DsUd2wPq0LQsoY", "u793430869_Nytrobot");
-  
-  if ($conn->connect_error) {
-    die("ERROR: Unable to connect: " . $conn->connect_error);
-  } 
-
-  echo 'Connected to the database.<br>';
-
-  $result = $conn->query("SELECT Username FROM Users");
-
-  sendMessage($ChatID, $result->num_rows);
-
-  $result->close();
-
-  $conn->close();
-	
 	$botToken = "1036235226:AAEHiMaeIW0CRa34AvVG7H4JWuUBJn_poIM"; // Api TOKEN to our bot
 	$website = "https://api.telegram.org/bot".$botToken;
 	
@@ -54,8 +36,15 @@
 			break;
 
 		case "Tastiera Normale": // This is the same text inside a Keyboard
-			$msg = "Abracadabra la tastiera appare!";
-			showKeyboard($ChatID, $msg);
+   $conn = new mysqli("http://185.224.137.151", "u793430869_Nytrobot", "DsUd2wPq0LQsoY", "u793430869_Nytrobot");
+  
+  $result = $conn->query("SELECT Username FROM Users");
+
+  sendMessage($ChatID, $result->num_rows);
+
+  $result->close();
+
+  $conn->close();
 			break;
 			
 		case "Nascondi Tastiera": // This is the same text inside a Keyboard
