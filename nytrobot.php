@@ -42,7 +42,7 @@ $dbPassword = "DsUd2wPq0LQsoY";
 $dbName = "u793430869_Nytrobot";
 $conn = new mysqli($dbServerName, $dbUsername, $dbPassword, $dbName);
 			
-$sql = "SELECT * FROM `Users`";
+$sql = "SELECT * FROM 'Users'";
 $result = $conn->query($sql);
 if ($result->num_rows > 0) {
     // output data of each row
