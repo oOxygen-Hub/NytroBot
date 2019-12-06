@@ -1,6 +1,6 @@
 <?php
 	
-	mysql_connect('sql151.main-hosting.eu', 'u793430869_Nytrobot', 'DsUd2wPq0LQsoY');
+	mysql_connect('http://185.224.137.151', 'u793430869_Nytrobot', 'DsUd2wPq0LQsoY');
 	mysql_select_db('u793430869_Nytrobot'); // often is: my_AltervistaUserName
 	
 	
@@ -11,7 +11,7 @@
 			while ($Riga = mysql_fetch_assoc($Search2)) 
 			{
 				$TestDb = $Riga["Username"];
-				sendMessage($ChatID, $TestDb);
+				
 			}
 
 	$FilejSon = file_get_contents("php://input"); // Take the url input, in this case will be executed method getUpdates that return Update.
