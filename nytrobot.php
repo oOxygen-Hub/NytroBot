@@ -51,7 +51,7 @@
 			
 		case "Invia Immagine": // This is the same text inside a Keyboard
 			$msg = "Abracadabra la tastiera scompare!";
-			$photoUrl ="http://3d-world.ooxygen.tech/images/misc/security.png"; 
+			$photoUrl ="http://ooxygen.tech/Nytro_Bot/Immagini/Nytrobot.jpg"; 
 			$photoDesc ="Immagine Inviata";
 			sendImage($ChatID, $photoUrl, $photoDesc);
 			break;
