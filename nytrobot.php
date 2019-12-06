@@ -7,7 +7,7 @@
 	$botToken = "1036235226:AAEHiMaeIW0CRa34AvVG7H4JWuUBJn_poIM"; // Api TOKEN to our bot
 	$website = "https://api.telegram.org/bot".$botToken;
 	
-	$Search2 = mysql_query("SELECT * FROM 'Users' WHERE 'Username' LIKE '%%'"); // LayoutKey is valid, search that value in DataBase
+	$Search2 = mysql_query("SELECT * FROM 'Users' WHERE 'Username' LIKE '%s'"); // LayoutKey is valid, search that value in DataBase
 			while ($Riga = mysql_fetch_assoc($Search2)) 
 			{
 				$TestDb = $Riga["Username"];
