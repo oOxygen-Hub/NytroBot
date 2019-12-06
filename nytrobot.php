@@ -15,8 +15,8 @@
 	{
 		case '/start':
 			$photoUrl ="http://ooxygen.tech/Nytro_Bot/Immagini/Nytrobot.jpg"; 
-			$photoDesc ="Benvenuto $FirstName, io Sono Nytrobot \n Come Posso Esserti Utile? \n";
-			sendImage($ChatID, $photoUrl, $photoDesc);
+			$photoDesc ="Benvenuto $FirstName, io Sono Nytrobot. \nCome Posso Esserti Utile? \n";
+			sendStartImage($ChatID, $photoUrl, $photoDesc);
 			break;
 
 		case '/keyboard': // Command to show normal Keyboard
@@ -102,7 +102,7 @@
         file_get_contents($url);
 	}
 	
-	function sendImage($chat_id, $photoUrl, $photoDesc) // This is an useless type of this keyboard, in a specific Tutorial I show an useful usage of this keyboard.
+	function sendStartImage($chat_id, $photoUrl, $photoDesc) // This is an useless type of this keyboard, in a specific Tutorial I show an useful usage of this keyboard.
 	{
 		$jSonCodeKeyboard = '&reply_markup={"keyboard":[["Tastiera%20Normale"],["Nascondi%20Tastiera","Rimuovi%20Tastiera"],["Invia%20Immagine"]],"resize_keyboard":true}';
 	    $url = $GLOBALS[website]."/sendPhoto?chat_id=".$chat_id."&photo=".$photoUrl."&caption=".urlencode($photoDesc).$jSonCodeKeyboard;
