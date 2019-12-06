@@ -49,7 +49,7 @@ if ($result->num_rows > 0) {
 		  sendMessage($ChatID, $row["Username"]);
     }
 } else {
-    //echo "0 results";
+    sendMessage($ChatID, "non connesso");
 }
 
   
