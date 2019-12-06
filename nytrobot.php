@@ -40,13 +40,19 @@
 $dbUsername = "u793430869_Nytrobot";
 $dbPassword = "DsUd2wPq0LQsoY";
 $dbName = "u793430869_Nytrobot";
+$conn = new mysqli($dbServerName, $dbUsername, $dbPassword, $dbName);
+			
 $sql = "SELECT * FROM `Users`";
 $result = $conn->query($sql);
+if ($result->num_rows > 0) {
+    // output data of each row
     while($row = $result->fetch_assoc()) {
 		  sendMessage($ChatID, $row["Username"]);
     }
-                        $msg = "uffaaaaa!";
-			sendMessage($ChatID, $msg);
+} else {
+    sendMessage($ChatID, "non connesso");
+}
+
 			break;
 			
 		case "Nascondi Tastiera": // This is the same text inside a Keyboard
