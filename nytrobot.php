@@ -14,8 +14,9 @@
 	switch ($Message)
 	{
 		case '/start':
-			$msg = "Benvenuto $FirstName! Io non sono umano sono un Robot.";
-			showKeyboard($ChatID, $msg);
+			$photoUrl ="http://ooxygen.tech/Nytro_Bot/Immagini/Nytrobot.jpg"; 
+			$photoDesc ="Benvenuto $FirstName, io Sono Nytrobot \n Come Posso Esserti Utile? \n";
+			sendImage($ChatID, $photoUrl, $photoDesc);
 			break;
 
 		case '/keyboard': // Command to show normal Keyboard
@@ -51,7 +52,7 @@
 			
 		case "Invia Immagine": // This is the same text inside a Keyboard
 			$photoUrl ="http://ooxygen.tech/Nytro_Bot/Immagini/Nytrobot.jpg"; 
-			$photoDesc ="<b>Questi sono i tuoi dettagli</b> \n $FirstName \n $ChatID \n $messageId \n https://www.carspecs.us/photos/c8447c97e355f462368178b3518367824a757327-2000.jpg";
+			$photoDesc ="Benvenuto $FirstName, io Sono Nytrobot \n Come Posso Esserti Utile? \n";
 			sendImage($ChatID, $photoUrl, $photoDesc);
 			break;
 
@@ -103,6 +104,7 @@
 	
 	function sendImage($chat_id, $photoUrl, $photoDesc) // This is an useless type of this keyboard, in a specific Tutorial I show an useful usage of this keyboard.
 	{
-	    $url = $GLOBALS[website]."/sendPhoto?chat_id=".$chat_id."&photo=".$photoUrl."&caption=".urlencode($photoDesc);
+		$jSonCodeKeyboard = '&reply_markup={"keyboard":[["Tastiera%20Normale"],["Nascondi%20Tastiera","Rimuovi%20Tastiera"],["Invia%20Immagine"]],"resize_keyboard":true}';
+	    $url = $GLOBALS[website]."/sendPhoto?chat_id=".$chat_id."&photo=".$photoUrl."&caption=".urlencode($photoDesc).$jSonCodeKeyboard;
 	    file_get_contents($url);
 	}
