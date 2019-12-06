@@ -36,15 +36,23 @@
 			break;
 
 		case "Tastiera Normale": // This is the same text inside a Keyboard
-   $conn = new mysqli("https://185.224.137.151", "u793430869_Nytrobot", "DsUd2wPq0LQsoY", "u793430869_Nytrobot");
+$dbServerName = "185.224.137.151";
+$dbUsername = "u793430869_Nytrobot";
+$dbPassword = "DsUd2wPq0LQsoY";
+$dbName = "u793430869_Nytrobot";
+$sql = "SELECT ID, Username FROM Users";
+$result = $conn->query($sql);
+
+if ($result->num_rows > 0) {
+    // output data of each row
+    while($row = $result->fetch_assoc()) {
+		  sendMessage($ChatID, $row["Username"]);
+    }
+} else {
+    //echo "0 results";
+}
+
   
-  $result = $conn->query("SELECT Username FROM Users");
-
-  sendMessage($ChatID, $result->num_rows);
-
-  $result->close();
-
-  $conn->close();
 			break;
 			
 		case "Nascondi Tastiera": // This is the same text inside a Keyboard
