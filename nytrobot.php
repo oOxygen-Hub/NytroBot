@@ -19,28 +19,28 @@
 			sendStartImage($ChatID, $photoUrl, $photoDesc);
 			break;
 			
-		case 'Master%20Menu':
+		case 'Master Menu':
 			$photoUrl ="http://ooxygen.tech/Nytro_Bot/Immagini/photo_3.jpg"; 
 			$photoDesc ="$FirstName, sei Nel Master Menu. \nCosa Vuoi Fare? \n";
 			sendStartImage($ChatID, $photoUrl, $photoDesc);
 			break;
 
-		case 'Links%20Utili': // Command to show normal Keyboard
+		case 'Links Utili': // Command to show normal Keyboard
 			$msg = "Questo è il comando tastiera.";
 			showKeyboard($ChatID, $msg);
 			break;
 
-		case "Database%20Utenti":
+		case "Database Utenti":
 			$msg = $ChatID;
 			sendMessage($ChatID, $msg);
 			break;
 
-		case "Glossario%20Stampa3D": // This is the same text inside a Keyboard
+		case "Glossario Stampa3D": // This is the same text inside a Keyboard
 			$msg = "Abracadabra la tastiera appare!";
 			showKeyboard($ChatID, $msg);
 			break;
 			
-		case "Info%20Bot": // This is the same text inside a Keyboard
+		case "Info Bot": // This is the same text inside a Keyboard
 			$msg = "Abracadabra la tastiera appare!";
 			showKeyboard($ChatID, $msg);
 			break;
@@ -69,7 +69,7 @@
 			break;
 
 		default:
-			$msg = "Unknown Command!";
+			$msg = "Comando Sconosciuto!";
 			sendMessage($ChatID, $msg);
 			break;
 	} 
