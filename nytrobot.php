@@ -9,48 +9,27 @@
 	$FirstName = $FilejSon["message"]["chat"]["first_name"]; // Get the name that user set
 	$ChatID = $FilejSon["message"]["chat"]["id"]; // get the User ID, this is unique
 	$Message = $FilejSon["message"]["text"]; // Get the message sent from user
-    $messageId = $FilejSon["message"]["message_id"]; // get the User ID, this is unique
-	
+
 	switch ($Message)
 	{
 		case '/start':
-			$photoUrl ="http://ooxygen.tech/Nytro_Bot/Immagini/Nytrobot.jpg"; 
-			$photoDesc ="Benvenuto $FirstName, io Sono Nytrobot. \nCome Posso Esserti Utile? \n";
-			sendStartImage($ChatID, $photoUrl, $photoDesc);
-			break;
-			
-		case 'Master Menu':
-			$photoUrl ="http://ooxygen.tech/Nytro_Bot/Immagini/photo_3.jpg"; 
-			$photoDesc ="$FirstName, sei Nel Master Menu. \nCosa Vuoi Fare? \n";
-			sendStartImage($ChatID, $photoUrl, $photoDesc);
-			break;
-
-		case 'Links Utili': // Command to show normal Keyboard
-			$photoUrl ="http://ooxygen.tech/Nytro_Bot/Immagini/photo_3.jpg"; 
-			$photoDesc ="$FirstName, sei Nel Menu Links Utili. \nCosa Vuoi Fare? \n";
-			MenuUtilityLinks($ChatID, $photoUrl, $photoDesc);
-			break;
-
-		case "Database Utenti":
-			//$photoUrl ="http://ooxygen.tech/Nytro_Bot/Immagini/photo_3.jpg"; 
-			//$photoDesc ="$FirstName, sei Nel Menu Database Utenti. \nCosa Vuoi Fare? \n";
-			//MenuDatabase($ChatID, $photoUrl, $photoDesc);
-			break;
-
-		case "Glossario Stampa3D": // This is the same text inside a Keyboard
-			$msg = "Abracadabra la tastiera appare!";
+			$msg = "Welcome $FirstName! I'm a Tutorial Bot.";
 			showKeyboard($ChatID, $msg);
 			break;
-			
-		case "Info Bot": // This is the same text inside a Keyboard
-			$msg = "Abracadabra la tastiera appare!";
+
+		case '/keyboard': // Command to show normal Keyboard
+			$msg = "This is a Tutorial, this Keyboard has 3 buttons, click one to test.";
 			showKeyboard($ChatID, $msg);
 			break;
-			
-		case "Nascondi Tastiera": // This is the same text inside a Keyboard
-		    //$msg = "Welcome $messageId! I'm a Tutorial Bot.";
-			 $message_body = "<b>Questi sono i tuoi dettagli</b> \n $FirstName \n $ChatID \n $messageId \n https://www.carspecs.us/photos/c8447c97e355f462368178b3518367824a757327-2000.jpg";
-			sendMessageParseHtml($ChatID, $message_body);
+
+		case "chatid":
+			$msg = $ChatID;
+			sendMessage($ChatID, $msg);
+			break;
+
+		case "Normal Keyboard": // This is the same text inside a Keyboard
+			$msg = "Abracadabra and keyboard will appear!";
+			showKeyboard($ChatID, $msg);
 			break;
 
 		case "Inline Keyboard": // This is the same text inside a Keyboard
@@ -58,21 +37,14 @@
 			inlineKeyboard($ChatID, $msg);
 			break;
 
-		case "Rimuovi Tastiera": // This is the same text inside a Keyboard
-			//$msg = "Abracadabra la tastiera scompare!";
-			//removeKeyboard($ChatID, $msg);
-			//break;
-			deleteMessage($ChatID, "last");
-			
-		case "Invia Immagine": // This is the same text inside a Keyboard
-			$photoUrl ="http://ooxygen.tech/Nytro_Bot/Immagini/Nytrobot.jpg"; 
-			$photoDesc ="Benvenuto $FirstName, io Sono Nytrobot \n Come Posso Esserti Utile? \n";
-			sendImage($ChatID, $photoUrl, $photoDesc);
+		case "Remove Keyboard": // This is the same text inside a Keyboard
+			$msg = "Abracadabra and keyboard will disappear!";
+			removeKeyboard($ChatID, $msg);
 			break;
 
 		default:
-			$msg = "Comando Sconosciuto!";
-			sendMessage($ChatID, $msg);
+			$msg = "Unknown Command! So sorry ;(";
+			sendMessage($ChatId, $msg);
 			break;
 	} 
 	
@@ -83,15 +55,9 @@
 		file_get_contents($url);
 	}
 
-	function sendMessageParseHtml($chat_id, $text)
-	{
-		$url = $GLOBALS[website]."/sendMessage?chat_id=$chat_id&parse_mode=HTML&text=".urlencode($text);
-		file_get_contents($url);
-	}
-
 	function showKeyboard($chat_id, $text)
 	{
-		$jSonCodeKeyboard = '&reply_markup={"keyboard":[["Master%20Menu"],["Nascondi%20Tastiera","Rimuovi%20Tastiera"],["Invia%20Immagine"]],"resize_keyboard":true}';
+		$jSonCodeKeyboard = '&reply_markup={"keyboard":[["Normal%20Keyboard"],["Hide%20Keyboard","Remove%20Keyboard"]],"resize_keyboard":true}';
 		$url = $GLOBALS[website]."/sendMessage?chat_id=".$chat_id."&text=".urlencode($text).$jSonCodeKeyboard;
 		file_get_contents($url);
 	}
@@ -109,30 +75,3 @@
 		$url = $GLOBALS[website]."/sendMessage?chat_id=".$chat_id."&text=".urlencode($text).$jSonCodeKeyboard;
 		file_get_contents($url);
 	}
-	
-	function deleteMessage($chat_id, $querymsgid) // This is an useless type of this keyboard, in a specific Tutorial I show an useful usage of this keyboard.
-	{
-	    $url = $GLOBALS[website]."/deleteMessage?chat_id=$ChatID&message_id=last";
-        file_get_contents($url);
-	}
-	
-	function sendStartImage($chat_id, $photoUrl, $photoDesc) // This is an useless type of this keyboard, in a specific Tutorial I show an useful usage of this keyboard.
-	{
-		$jSonCodeKeyboard = '&reply_markup={"keyboard":[["Links%20Utili"],["Database%20Utenti","Glossario%20Stampa3D"],["Info%20Bot"]],"resize_keyboard":true}';
-	    $url = $GLOBALS[website]."/sendPhoto?chat_id=".$chat_id."&photo=".$photoUrl."&caption=".urlencode($photoDesc).$jSonCodeKeyboard;
-	    file_get_contents($url);
-	}
-	
-	function MenuUtilityLinks($chat_id, $photoUrl, $photoDesc) // This is an useless type of this keyboard, in a specific Tutorial I show an useful usage of this keyboard.
-	{
-		$jSonCodeKeyboard = '&reply_markup={"keyboard":[["Master%20Menu"],["Guide%20Base","Files%20Stl"],["Info%20Bot"]],"resize_keyboard":true}';
-	    $url = $GLOBALS[website]."/sendPhoto?chat_id=".$chat_id."&photo=".$photoUrl."&caption=".urlencode($photoDesc).$jSonCodeKeyboard;
-	    file_get_contents($url);
-	}
-	
-	//function MenuDatabase($chat_id, $photoUrl, $photoDesc) // This is an useless type of this keyboard, in a specific Tutorial I show an useful usage of this keyboard.
-	//{
-		//$jSonCodeKeyboard = '&reply_markup={"keyboard":[["Master%20Menu"],["Inserisci%20Utente","Cerca%20Utente"],["Aggiorna%20Utente","Cancella%20Utente"]],"resize_keyboard":true}';
-	    //$url = $GLOBALS[website]."/sendPhoto?chat_id=".$chat_id."&photo=".$photoUrl."&caption=".urlencode($photoDesc).$jSonCodeKeyboard;
-	    //file_get_contents($url);
-	//}
