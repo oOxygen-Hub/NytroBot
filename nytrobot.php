@@ -26,8 +26,9 @@
 			break;
 
 		case 'Links Utili': // Command to show normal Keyboard
-			$msg = "Questo è il comando tastiera.";
-			showKeyboard($ChatID, $msg);
+			$photoUrl ="http://ooxygen.tech/Nytro_Bot/Immagini/photo_3.jpg"; 
+			$photoDesc ="$FirstName, sei Nel Menu Links Utili. \nCosa Vuoi Fare? \n";
+			MenuUtilityLinks($ChatID, $photoUrl, $photoDesc);
 			break;
 
 		case "Database Utenti":
@@ -117,6 +118,13 @@
 	function sendStartImage($chat_id, $photoUrl, $photoDesc) // This is an useless type of this keyboard, in a specific Tutorial I show an useful usage of this keyboard.
 	{
 		$jSonCodeKeyboard = '&reply_markup={"keyboard":[["Links%20Utili"],["Database%20Utenti","Glossario%20Stampa3D"],["Info%20Bot"]],"resize_keyboard":true}';
+	    $url = $GLOBALS[website]."/sendPhoto?chat_id=".$chat_id."&photo=".$photoUrl."&caption=".urlencode($photoDesc).$jSonCodeKeyboard;
+	    file_get_contents($url);
+	}
+	
+		function MenuUtilityLinks($chat_id, $photoUrl, $photoDesc) // This is an useless type of this keyboard, in a specific Tutorial I show an useful usage of this keyboard.
+	{
+		$jSonCodeKeyboard = '&reply_markup={"keyboard":[["Master%20Menu"],["Guide%20Base","Files%20Stl"]],"resize_keyboard":true}';
 	    $url = $GLOBALS[website]."/sendPhoto?chat_id=".$chat_id."&photo=".$photoUrl."&caption=".urlencode($photoDesc).$jSonCodeKeyboard;
 	    file_get_contents($url);
 	}
