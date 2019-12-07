@@ -32,8 +32,9 @@
 			break;
 
 		case "Database Utenti":
-			$msg = $ChatID;
-			sendMessage($ChatID, $msg);
+			$photoUrl ="http://ooxygen.tech/Nytro_Bot/Immagini/photo_3.jpg"; 
+			$photoDesc ="$FirstName, sei Nel Menu Database Utenti. \nCosa Vuoi Fare? \n";
+			MenuDatabase($ChatID, $photoUrl, $photoDesc);
 			break;
 
 		case "Glossario Stampa3D": // This is the same text inside a Keyboard
@@ -122,9 +123,16 @@
 	    file_get_contents($url);
 	}
 	
-		function MenuUtilityLinks($chat_id, $photoUrl, $photoDesc) // This is an useless type of this keyboard, in a specific Tutorial I show an useful usage of this keyboard.
+	function MenuUtilityLinks($chat_id, $photoUrl, $photoDesc) // This is an useless type of this keyboard, in a specific Tutorial I show an useful usage of this keyboard.
 	{
-		$jSonCodeKeyboard = '&reply_markup={"keyboard":[["Master%20Menu"],["Guide%20Base","Files%20Stl"]],"resize_keyboard":true}';
+		$jSonCodeKeyboard = '&reply_markup={"keyboard":[["Master%20Menu"],["Guide%20Base","Files%20Stl"],["Info%20Bot"]],"resize_keyboard":true}';
+	    $url = $GLOBALS[website]."/sendPhoto?chat_id=".$chat_id."&photo=".$photoUrl."&caption=".urlencode($photoDesc).$jSonCodeKeyboard;
+	    file_get_contents($url);
+	}
+	
+	function MenuDatabase($chat_id, $photoUrl, $photoDesc) // This is an useless type of this keyboard, in a specific Tutorial I show an useful usage of this keyboard.
+	{
+		$jSonCodeKeyboard = '&reply_markup={"keyboard":[["Master%20Menu"],["Inserisci%20Utente","Cerca%20Utente"],["Aggiorna%20Utente","Cancella%20Utente"]],"resize_keyboard":true}';
 	    $url = $GLOBALS[website]."/sendPhoto?chat_id=".$chat_id."&photo=".$photoUrl."&caption=".urlencode($photoDesc).$jSonCodeKeyboard;
 	    file_get_contents($url);
 	}
